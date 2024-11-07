@@ -18,8 +18,13 @@ import pandas as pd
 file_path = ('anonymized_data_final_acronyms(in).csv') # insert the path of the csv file
 data = pd.read_csv(file_path)
 
+
+
+# Drop columns that are empty
+data = data.loc[:, data.columns[:11]]  # Keep only the first 11 columns (adjust as needed)
+
 #preview the csv file
-data.head()
+print(data.head())
 
 loader = CSVLoader(file_path=file_path)
 docs = loader.load_and_split()
