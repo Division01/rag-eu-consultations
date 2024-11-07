@@ -110,20 +110,24 @@ handler = SlackRequestHandler(app)
 
 @app.event("app_mention")
 def handle_app_mentions(body, say, logger):
+    print(f"app mentioned, body : {body}, say : {say}")
     user_id = body["event"]["user"]
     say(f"Hi there, <@{user_id}>!")
 
     text = body["event"]["text"]
     answer= rag_chain.invoke({"input": text})
+    print(f"answer : {answer}")
     say(answer['answer'])
 
 @app.event("message")
 def handle_message_events(body, say, logger):
+    print(f"app message, body : {body}, say : {say}")
     user_id = body["event"]["user"]
     say(f"Hi there, <@{user_id}>!")
 
     text = body["event"]["text"]
     answer= rag_chain.invoke({"input": text})
+    print(f"answer : {answer}")
     say(answer['answer'])
 
 @flask_app.route("/slack/events", methods=["POST"])
