@@ -1,14 +1,13 @@
-## Credit to : https://github.com/clairelovesgravy/slack_bot_demo/blob/main/app.py
+## Credit to : https://github.com/clairelovesgravy/slack_bot_demo/blob/main/app.py for the slack interaction
+## Credit to : https://github.com/NirDiamant/RAG_Techniques/blob/main/all_rag_techniques/simple_csv_rag.ipynb for the RAG
+## Credit to Vincent Fischer for stealing code and putting them together.
+## Hackaton GenAI ECF 2024 Brussels 
 
 import os
 from flask import Flask, request
 from dotenv import load_dotenv, find_dotenv
 from slack_bolt import App
 from slack_bolt.adapter.flask import SlackRequestHandler
-from langchain.memory import ConversationBufferWindowMemory
-from langchain.chains import ConversationChain
-from langchain.chat_models import ChatOpenAI
-from langchain.prompts.prompt import PromptTemplate
 from key import OPENAI_API_KEY, SLACK_BOT_TOKEN, SIGNING_SECRET
 
 # Load the environment variables
